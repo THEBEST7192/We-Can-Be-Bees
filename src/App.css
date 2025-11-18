@@ -40,3 +40,237 @@
 .read-the-docs {
   color: #888;
 }
+
+.bee-script-container {
+  max-height: 70vh;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  background: radial-gradient(circle at top left, #fff7b3, #ffe066 40%, #ffcc00 70%, #f4b400);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  position: relative;
+}
+
+.bee-script-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #3b2900;
+}
+
+.bee-script {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  text-align: left;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fffbea;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.65);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  scrollbar-width: thin;
+  scrollbar-color: #ffeb3b #1a1a1a;
+}
+
+.bee-script::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bee-script::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 999px;
+}
+
+.bee-script::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ffeb3b, #f4b400);
+  border-radius: 999px;
+}
+
+.bee-script::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#fff176, #fbc02d);
+}
+
+.bee-line {
+  display: flex;
+  gap: 0.75rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.bee-line-number {
+  display: inline-block;
+  width: 3.25rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  color: #ffd54f;
+  opacity: 0.7;
+  text-align: right;
+}
+
+.bee {
+  position: absolute;
+  width: 28px;
+  height: 18px;
+  transform-origin: center;
+}
+
+.bee-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffeb3b 0,
+    #ffeb3b 6px,
+    #3e2723 6px,
+    #3e2723 10px
+  );
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.bee-wing {
+  position: absolute;
+  top: -8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, rgba(255, 255, 255, 0.1));
+  opacity: 0.85;
+  filter: blur(0.2px);
+}
+
+.bee-wing-left {
+  left: 2px;
+}
+
+.bee-wing-right {
+  right: 2px;
+}
+
+.bee-1 {
+  top: 6%;
+  left: 8%;
+  animation: bee-fly-1 13s linear infinite;
+}
+
+.bee-2 {
+  top: 14%;
+  right: 6%;
+  animation: bee-fly-2 11s linear infinite;
+}
+
+.bee-3 {
+  bottom: 12%;
+  left: 14%;
+  animation: bee-fly-3 15s linear infinite;
+}
+
+.bee-4 {
+  bottom: 8%;
+  right: 12%;
+  animation: bee-fly-4 12s linear infinite;
+}
+
+.bee-5 {
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bee-hover 7s ease-in-out infinite;
+}
+
+@keyframes bee-fly-1 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(40px, -10px, 0) rotate(8deg);
+  }
+  50% {
+    transform: translate3d(10px, 20px, 0) rotate(-6deg);
+  }
+  75% {
+    transform: translate3d(-30px, -6px, 0) rotate(4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes bee-fly-2 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(-30px, 10px, 0) rotate(-10deg);
+  }
+  50% {
+    transform: translate3d(-10px, -16px, 0) rotate(3deg);
+  }
+  75% {
+    transform: translate3d(24px, 6px, 0) rotate(-4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes bee-fly-3 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate3d(24px, -16px, 0) rotate(5deg);
+  }
+  50% {
+    transform: translate3d(0, -26px, 0) rotate(-6deg);
+  }
+  80% {
+    transform: translate3d(-26px, 8px, 0) rotate(4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes bee-fly-4 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  30% {
+    transform: translate3d(-22px, -10px, 0) rotate(-5deg);
+  }
+  55% {
+    transform: translate3d(-4px, 18px, 0) rotate(3deg);
+  }
+  80% {
+    transform: translate3d(18px, -8px, 0) rotate(-4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes bee-hover {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  25% {
+    transform: translate3d(-50%, -12px, 0);
+  }
+  50% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  75% {
+    transform: translate3d(-50%, 10px, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
