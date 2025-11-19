@@ -3,8 +3,7 @@ import './App.css'
 
 function App() {
   const [beeScript, setBeeScript] = useState<string>('Loading Bee script...')
-  const [videoVisible, setVideoVisible] = useState(false)
-  const [videoPosition, setVideoPosition] = useState({ top: 50, left: 50 })
+  const [overlays, setOverlays] = useState<Array<{ id: number; top: number; left: number; duration: number }>>([])
 
   useEffect(() => {
     const beesUrl = new URL('./BEES.txt', import.meta.url)
@@ -24,16 +23,21 @@ function App() {
         return
       }
 
-      setVideoPosition({
+      const position = {
         top: 25 + Math.random() * 50,
         left: 25 + Math.random() * 50,
-      })
+      }
 
-      setVideoVisible(true)
+      const minDuration = 3000
+      const maxDuration = 18000
+      const duration = Math.floor(minDuration + Math.random() * (maxDuration - minDuration))
+      const id = Date.now() + Math.floor(Math.random() * 1000)
+
+      setOverlays((prev) => [...prev, { id, top: position.top, left: position.left, duration }])
 
       window.setTimeout(() => {
-        setVideoVisible(false)
-      }, 7000)
+        setOverlays((prev) => prev.filter((o) => o.id !== id))
+      }, duration)
     }, 12000)
 
     return () => {
@@ -70,15 +74,16 @@ function App() {
           <div className="bee-wing bee-wing-right" />
         </div>
       </div>
-      {videoVisible && (
+      {overlays.map((o) => (
         <div
+          key={o.id}
           className="bee-video-overlay"
-          style={{ top: `${videoPosition.top}%`, left: `${videoPosition.left}%` }}
+          style={{ top: `${o.top}%`, left: `${o.left}%` }}
         >
           <iframe
             width="396"
             height="703"
-            src="https://www.youtube.com/embed/9HYG_oI8iS8?autoplay=1&mute=1"
+            src="https://www.youtube.com/embed/9HYG_oI8iS8?autoplay=1&mute=0&start=0&end=18"
             title="WE FINALLY BECAME BE BEES🙏🏻😭"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -86,7 +91,7 @@ function App() {
             allowFullScreen
           />
         </div>
-      )}
+      ))}
       <h1 className="bee-script-title">We Can Be Bees</h1>
       <pre className="bee-script">{beeScript}</pre>
     </div>
