@@ -1,8 +1,16 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  height: 100vh;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .logo {
@@ -42,34 +50,45 @@
 }
 
 .bee-script-container {
-  max-height: 70vh;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  border-radius: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 5vw;
+  margin-top: 0;
+  border-radius: 0;
   background: radial-gradient(circle at top left, #fff7b3, #ffe066 40%, #ffcc00 70%, #f4b400);
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bee-script-title {
-  margin: 0 0 0.75rem;
-  font-size: 1.25rem;
+  margin: 0 0 1.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #3b2900;
+  text-align: center;
 }
 
 .bee-script {
-  margin: 0;
-  padding: 0.75rem 1rem;
-  max-height: 60vh;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  max-width: 100%;
+  height: 85vh;
+  max-height: 85vh;
   overflow-y: auto;
+  overflow-x: hidden;
   text-align: left;
+  white-space: pre-wrap;
+  word-break: break-word;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
   background: rgba(0, 0, 0, 0.6);
   color: #fffbea;
   border-radius: 0.75rem;
@@ -272,5 +291,30 @@
   }
   100% {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.bee-video-overlay {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  animation: bee-video-pop 0.4s ease-out;
+}
+
+.bee-video-overlay iframe {
+  border-radius: 1rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+  max-width: min(396px, 80vw);
+  max-height: min(703px, 80vh);
+}
+
+@keyframes bee-video-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
