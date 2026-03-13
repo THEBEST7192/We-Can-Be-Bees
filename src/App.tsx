@@ -29,7 +29,7 @@ function App() {
       }
 
       const minDuration = 3000
-      const maxDuration = 18000
+      const maxDuration = 19000
       const duration = Math.floor(minDuration + Math.random() * (maxDuration - minDuration))
       const id = Date.now() + Math.floor(Math.random() * 1000)
 
@@ -83,8 +83,8 @@ function App() {
           <iframe
             width="396"
             height="703"
-            src="https://www.youtube.com/embed/9HYG_oI8iS8?autoplay=1&mute=0&start=0&end=18"
-            title="WE FINALLY BECAME BE BEES🙏🏻😭"
+            src="https://www.youtube.com/embed/jsfG5iwPWeA?autoplay=1&mute=0&start=0&end=19"
+            title="We can be bees"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
